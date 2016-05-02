@@ -984,12 +984,13 @@ static int gpio_keys_probe(struct platform_device *pdev)
 		else if (bdata->button->code == KEY_HOMEPAGE)
 			code_name = "HOME_KEY";
 		else if (bdata->button->code == KEY_VOLUMEDOWN)
-				code_name = "VOL_DOWN";
+			code_name = "VOL_DOWN";
 		else if (bdata->button->code == KEY_VOLUMEUP)
-				code_name = "VOL_UP";
+			code_name = "VOL_UP";
+		else code_name = "";
 
 		dev_info(dev, "%s(%d) , gpio_val(%d)",
-			code_name ? code_name : "", bdata->button->code, gpio_get_value(bdata->button->gpio));
+			code_name, bdata->button->code, gpio_get_value(bdata->button->gpio));
 	}
 
 	return 0;
